@@ -247,9 +247,13 @@ patient selection widget.  For full details, see <a href="scopes-and-launch-cont
 
 #### Step 1: App asks for authorization
 
-At launch time, the app constructs a request for authorization by adding the
-following parameters to the query component of the EHR’s "authorize" endpoint
-URL.:
+At launch time, the app constructs a request for authorization by supplying the
+following parameters to the query component of the EHR’s "authorize" endpoint.
+
+The following requirements are adopted from [OpenID Connect Core 1.0 Specification section 3.1.2.1](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest):
+
+* Authorization Servers SHALL support the use of the HTTP GET and POST methods at the Authorization Endpoint.
+* Clients MAY use the HTTP GET or POST methods to send the Authorization Request to the Authorization Server. If using the HTTP GET method, the request parameters are serialized using URI Query String Serialization. If using the HTTP POST method, the request parameters are serialized using Form Serialization and the `application/x-www-form-urlencoded` content type.
 
 <table class="table">
   <thead>
