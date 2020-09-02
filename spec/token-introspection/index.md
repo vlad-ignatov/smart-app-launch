@@ -32,7 +32,7 @@ In addition to the required fields, the following fields SHALL be included in th
 
 ## Authorization to perform Token Introspection
 
-SMART on FHIR EHRs SHALL implement access control protecting the Token Introspection endpoint. At a minimum, any client authorized to issue Token Introspection API calls should be able to authenticate to the Token Introspection endpoint using its client credentials. Further considerations for access control are out of scope for the SMART Appl Launch IG.
+RFC7662 requires that a token introspection "endpoint MUST also require some form of authorization to access this endpoint". Nevertheless, in some scenarios, access control on this endpoint may not provide value (e.g., for a client introspecting a fully transparent signed JWT with all claims visible). If the SMART on FHIR EHR implements access control protecting the Token Introspection endpoint, this access control SHALL be consistent with the access control enforced at the EHR's token issuance endpoint (e.g., client credentials authentication).  Further considerations for access control are out of scope for the SMART App Launch IG.
 
 
 ## Example Request and Response
