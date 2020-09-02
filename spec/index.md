@@ -366,7 +366,7 @@ context parameters</a>.*
 
 
 The app then causes the browser to navigate the browser to the EHR's **authorization URL** as
-determined above. For example:
+determined above. For example to cause the browser to issue a `GET`:
 
 
 ```
@@ -378,6 +378,25 @@ Location: https://ehr/authorize?
             scope=launch+patient%2FObservation.read+patient%2FPatient.read+openid+fhirUser&
             state=98wrghuwuogerg97&
             aud=https://ehr/fhir
+```
+
+Alternatively, the following example shows one way for a client app to cause the browser to issue a `POST`, using HTML and javascript:
+
+
+```
+<html>
+  <body onload="javascript:document.forms[0].submit()">
+    <form method="post" action="https://ehr/authorize">
+      <input type="hidden" name="response_type" value="code"/>
+      <input type="hidden" name="client_id" value="app-client-id"/>
+      <input type="hidden" name="redirect_uri" value="https://app/after-auth"/>
+      <input type="hidden" name="launch" value="xyz123"/>
+      <input type="hidden" name="scope" value="launch patient/Observation.read patient/Patient.read openid fhirUser"/>
+      <input type="hidden" name="state" value="98wrghuwuogerg97"/>
+      <input type="hidden" name="aud" value="https://ehr/fhir"/>
+    </form>
+  </body>
+</html>
 ```
 
 <a id="step-2"></a>
