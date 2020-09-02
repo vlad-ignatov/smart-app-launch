@@ -25,6 +25,9 @@ In addition to the required fields, the following fields SHALL be included in th
 
   * `iss`
   * `sub`
+ 
+* ID Token Claims. If an `id_token` was included in the original access token response, the following claims from the ID Token SHOULD be included in the Token Introspection response:
+
   * `fhirUser`
 
 ## Authorization to perform Token Introspection
